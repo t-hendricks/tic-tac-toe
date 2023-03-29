@@ -1,3 +1,48 @@
 html {
-    background-color: blanchedalmond;
+    height: 100vh;
+    width: 100%;
+    background-color:   #FFD3B5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    height: 500px;
+    width: 750px;
+    display: grid;
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-columns: auto;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    align-items: space-between;
+    justify-content: space-evenly;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px;
+    gap: 5px;
+}
+
+.tile {
+    border-radius: 25%;
+    border: 2px solid black;
+}
+
+#reset-board {
+    height: 30px;
+    margin-top: 20px;
+    grid-column: 1 / span 3;
+}
+
+footer {
+    text-align: center;
 }
