@@ -20,7 +20,7 @@ class Game {
         const emptyTile = event.target;
         const currMark = this.playerTwoTurn ? "O" : "X";
         this.placeMark(currMark, emptyTile);
-        console.log(this.checkWin(currMark));
+        if (this.checkWin(currMark)) this.endGame(`Player ${currMark} Wins!`);
         this.switchPlayersTurn();
         console.log(emptyTile);
     }
@@ -46,7 +46,7 @@ class Game {
 
         return conditions.some(condition => {
             return condition.every(position => {
-                // Change NodeList to an array
+                // Changes NodeList to an array
                 const playerMarks = Array.from(document.querySelectorAll(`.${mark.toLowerCase()}`));
                 return playerMarks.some(tile => tile.id == position);
             })
@@ -55,6 +55,13 @@ class Game {
 
     switchPlayersTurn = () => {
         this.playerTwoTurn = !this.playerTwoTurn;
+    }
+
+    endGame = message => {
+        const messEl = document.createElement("h2");
+        messEl.innerText = message;
+        document.querySelector("header").appendChild(messEl);
+        this.tileEls.forEach(tile => tile.removeEventListener("click", this.handleClick));
     }
 }
 
