@@ -20,7 +20,7 @@ class Game {
         const emptyTile = event.target;
         const currMark = this.playerTwoTurn ? "O" : "X";
         this.placeMark(currMark, emptyTile);
-        this.checkWin(currMark);
+        console.log(this.checkWin(currMark));
         this.switchPlayersTurn();
         console.log(emptyTile);
     }
@@ -33,7 +33,7 @@ class Game {
     /**
      * Iterate through the winning conditions 2D array 
      * for a 3x3 board to possibly find at least one match
-     * for every mark played on a matching tile
+     * for every mark.id played on a matching tile
      * @param {array} player 
      * @returns {boolean}
      */
@@ -45,9 +45,10 @@ class Game {
         ]
 
         return conditions.some(condition => {
-            return condition.every(tile => {
-                const playerMarks = document.querySelectorAll(`.${mark.toLowerCase()}`);
-                console.log(playerMarks);
+            return condition.every(position => {
+                // Change NodeList to an array
+                const playerMarks = Array.from(document.querySelectorAll(`.${mark.toLowerCase()}`));
+                return playerMarks.some(tile => tile.id == position);
             })
         })
     }
