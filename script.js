@@ -6,6 +6,7 @@ class Game {
     constructor() {
         this.playerTwoTurn = false;
         this.tileEls = document.querySelectorAll(".tile");
+        this.messageEl = document.querySelector("#end-game-message");
 
         // Invoke only once for each empty tile
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true}));
@@ -20,7 +21,7 @@ class Game {
         const emptyTile = event.target;
         const currMark = this.playerTwoTurn ? "O" : "X";
         this.placeMark(currMark, emptyTile);
-        if (this.checkWin(currMark)) this.endGame(`Player ${currMark} Wins!`);
+        if (this.checkWin(currMark)) this.endGame(`${currMark} Wins!`);
         this.switchPlayersTurn();
         console.log(emptyTile);
     }
@@ -58,9 +59,7 @@ class Game {
     }
 
     endGame = message => {
-        const messEl = document.createElement("h2");
-        messEl.innerText = message;
-        document.querySelector("header").appendChild(messEl);
+        this.messageEl.innerText = message;
         this.tileEls.forEach(tile => tile.removeEventListener("click", this.handleClick));
     }
 }
