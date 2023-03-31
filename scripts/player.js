@@ -11,15 +11,24 @@ class Player {
         this.draws = document.querySelector(`#${this.playerNum}>p>.draws`);
     }
 
-    setWins = num => this.wins.innerText = `W: ${num}`;
 
-    setLosses = num => this.losses.innerText = `L: ${num}`;
+    setWins = num => this.wins.innerText = `${num}`;
 
-    setDraws = num => this.draws.innerText = `D: ${num}`;
+
+    setLosses = num => this.losses.innerText = `${num}`;
+
+
+    setDraws = num => this.draws.innerText = `${num}`;
+
+
+    getNameDOM = () => this.name;
+
 
     getWins = () => this.wins.innerText;
 
+
     getLosses = () => this.losses.innerText;
 
+    
     getDraws = () => this.draws.innerText;
 }

@@ -5,8 +5,8 @@
 class Game {
     constructor() {
         this.playerTwoTurn = false;
-        this.playerOne = document.querySelector("#first-player>h2");
-        this.playerTwo = document.querySelector("#second-player>h2");
+        this.playerOne = new Player("first-player");
+        this.playerTwo = new Player("second-player");
         this.tileEls = document.querySelectorAll(".tile");
         this.messageEl = document.querySelector("#end-game-message");
         this.resetBtnEl = document.querySelector("#reset-board");
@@ -14,22 +14,9 @@ class Game {
         // Invoke only once for each empty tile
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true}));
         this.resetBtnEl.addEventListener("click", this.resetBoard);
-        this.playerOne.style.textDecoration = "underline";
+        this.playerOne.getNameDOM().style.textDecoration = "underline";
     }
 
-    // Replace each changed element back to original state
-    resetBoard = event => {
-        this.messageEl.innerText = "";
-        this.playerTwoTurn = false;
-        this.playerOne.style.textDecoration = "underline";
-        this.playerTwo.style.textDecoration = "none";
-        this.tileEls.forEach(tile => {
-            tile.classList.remove("x");
-            tile.classList.remove("o");
-            tile.innerText = "";
-            tile.addEventListener("click", this.handleClick, {once: true});
-        })
-    }
 
     /**
      * Check win conditions and player turns after 
@@ -38,23 +25,31 @@ class Game {
      */
     handleClick = event => {
         const emptyTile = event.target;
-        const currMark = this.playerTwoTurn ? "O" : "X";
-        this.placeMark(currMark, emptyTile);
-        if (this.checkWin(currMark)) {
-            this.endGame(`${currMark} Wins!`);
-        } else if (this.checkDraw(currMark)) {
+        const currPlayer = this.playerTwoTurn ? this.playerTwo : this.playerOne;
+        const otherPlayer = !this.playerTwoTurn ? this.playerTwo : this.playerOne;
+        const mark = currPlayer.getNameDOM().innerText;
+
+        this.placeMark(mark, emptyTile);
+
+        if (this.checkWin(mark)) {
+            this.updateStats(currPlayer, otherPlayer, false);
+            this.endGame(`${mark} Wins!`);
+        } else if (this.checkDraw(mark)) {
+            this.updateStats(currPlayer, otherPlayer, true);
             this.endGame("Draw!");
         } else {
-            this.switchPlayersTurn(currMark);
+            this.switchPlayersTurn(mark);
         }
         
         console.log(emptyTile);
     }
 
+
     placeMark = (mark, tile) => {
         tile.innerText = mark;
         tile.classList.add(mark.toLowerCase());
     }
+
 
     /**
      * Iterate through the winning conditions 2D array 
@@ -79,19 +74,52 @@ class Game {
         })
     }
 
+
     checkDraw = mark => {
         return document.querySelectorAll(`.${mark.toLowerCase()}`).length === 5;
     }
 
+
     switchPlayersTurn = mark => {
-        this.playerOne.style.textDecoration = mark === "X" ? "none" : "underline";
-        this.playerTwo.style.textDecoration = mark === "O" ? "none" : "underline";
+        this.playerOne.getNameDOM().style.textDecoration = mark === "X" ? "none" : "underline";
+        this.playerTwo.getNameDOM().style.textDecoration = mark === "O" ? "none" : "underline";
         this.playerTwoTurn = !this.playerTwoTurn;
     }
+
+
+    updateStats = (currPlayer, otherPlayer, draw) => {
+        if (draw) {
+            let currDrawCnt = parseInt(currPlayer.getDraws());
+            let otherDrawCnt = parseInt(otherPlayer.getDraws());
+            currPlayer.setDraws(++currDrawCnt);
+            otherPlayer.setDraws(++otherDrawCnt);
+        } else {
+            let currWinCnt = parseInt(currPlayer.getWins());
+            let otherLoseCnt = parseInt(otherPlayer.getLosses());
+            currPlayer.setWins(++currWinCnt);
+            otherPlayer.setLosses(++otherLoseCnt)
+        }
+    }
+
 
     endGame = message => {
         this.messageEl.innerText = message;
         this.tileEls.forEach(tile => tile.removeEventListener("click", this.handleClick));
+    }
+
+    
+    // Replace each changed element back to original state
+    resetBoard = event => {
+        this.messageEl.innerText = "";
+        this.playerTwoTurn = false;
+        this.playerOne.getNameDOM().style.textDecoration = "underline";
+        this.playerTwo.getNameDOM().style.textDecoration = "none";
+        this.tileEls.forEach(tile => {
+            tile.classList.remove("x");
+            tile.classList.remove("o");
+            tile.innerText = "";
+            tile.addEventListener("click", this.handleClick, {once: true});
+        })
     }
 }
 
