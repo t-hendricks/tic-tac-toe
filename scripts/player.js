@@ -5,10 +5,21 @@
 class Player {
     constructor(playerNum) {
         this.playerNum = playerNum;
-        this.wins = document.querySelector(`#${this.playerNum}>wins`);
-        this.losses = document.querySelector(`#${this.playerNum}>losses`);
-        this.wins = document.querySelector(`#${this.playerNum}>draws`);
+        this.name = document.querySelector(`#${this.playerNum}>.name`);
+        this.wins = document.querySelector(`#${this.playerNum}>.wins`);
+        this.losses = document.querySelector(`#${this.playerNum}>.losses`);
+        this.draws = document.querySelector(`#${this.playerNum}>.draws`);
     }
 
+    setWins = num => this.wins.innerText = `W: ${num}`;
 
+    setLosses = num => this.losses.innerText = `L: ${num}`;
+
+    setDraws = num => this.draws.innerText = `D: ${num}`;
+
+    getWins = () => this.wins.innerText;
+
+    getLosses = () => this.losses.innerText;
+
+    getDraws = () => this.draws.innerText;
 }
