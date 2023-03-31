@@ -7,9 +7,11 @@ class Game {
         this.playerTwoTurn = false;
         this.tileEls = document.querySelectorAll(".tile");
         this.messageEl = document.querySelector("#end-game-message");
+        this.resetBtnEl = document.querySelector("#reset-board");
 
         // Invoke only once for each empty tile
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true}));
+        this.resetBtnEl.addEventListener("click", this.resetBoard);
     }
 
     /**
@@ -21,8 +23,14 @@ class Game {
         const emptyTile = event.target;
         const currMark = this.playerTwoTurn ? "O" : "X";
         this.placeMark(currMark, emptyTile);
-        if (this.checkWin(currMark)) this.endGame(`${currMark} Wins!`);
-        this.switchPlayersTurn();
+        if (this.checkWin(currMark)) {
+            this.endGame(`${currMark} Wins!`);
+        } else if (this.checkDraw(currMark)) {
+            this.endGame("Draw!");
+        } else {
+            this.switchPlayersTurn();
+        }
+        
         console.log(emptyTile);
     }
 
@@ -38,7 +46,7 @@ class Game {
      * @param {array} player 
      * @returns {boolean}
      */
-    checkWin = (mark) => {
+    checkWin = mark => {
         const conditions = [
             [0,1,2],[3,4,5],[6,7,8],
             [0,3,6],[1,4,7],[2,5,8],
@@ -52,6 +60,10 @@ class Game {
                 return playerMarks.some(tile => tile.id == position);
             })
         })
+    }
+
+    checkDraw = mark => {
+        return document.querySelectorAll(`.${mark.toLowerCase()}`).length === 5;
     }
 
     switchPlayersTurn = () => {
