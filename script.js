@@ -14,6 +14,18 @@ class Game {
         this.resetBtnEl.addEventListener("click", this.resetBoard);
     }
 
+    // Replace each changed element back to original state
+    resetBoard = event => {
+        this.messageEl.innerText = "";
+        this.playerTwoTurn = false;
+        this.tileEls.forEach(tile => {
+            tile.classList.remove("x");
+            tile.classList.remove("o");
+            tile.innerText = "";
+            tile.addEventListener("click", this.handleClick, {once: true});
+        })
+    }
+
     /**
      * Check win conditions and player turns after 
      * clicking an empty tile and placing a token
