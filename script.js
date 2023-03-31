@@ -5,6 +5,8 @@
 class Game {
     constructor() {
         this.playerTwoTurn = false;
+        this.playerOne = document.querySelector("#first-player>h2");
+        this.playerTwo = document.querySelector("#second-player>h2");
         this.tileEls = document.querySelectorAll(".tile");
         this.messageEl = document.querySelector("#end-game-message");
         this.resetBtnEl = document.querySelector("#reset-board");
@@ -12,12 +14,15 @@ class Game {
         // Invoke only once for each empty tile
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true}));
         this.resetBtnEl.addEventListener("click", this.resetBoard);
+        this.playerOne.style.textDecoration = "underline";
     }
 
     // Replace each changed element back to original state
     resetBoard = event => {
         this.messageEl.innerText = "";
         this.playerTwoTurn = false;
+        this.playerOne.style.textDecoration = "underline";
+        this.playerTwo.style.textDecoration = "none";
         this.tileEls.forEach(tile => {
             tile.classList.remove("x");
             tile.classList.remove("o");
@@ -40,7 +45,7 @@ class Game {
         } else if (this.checkDraw(currMark)) {
             this.endGame("Draw!");
         } else {
-            this.switchPlayersTurn();
+            this.switchPlayersTurn(currMark);
         }
         
         console.log(emptyTile);
@@ -78,7 +83,9 @@ class Game {
         return document.querySelectorAll(`.${mark.toLowerCase()}`).length === 5;
     }
 
-    switchPlayersTurn = () => {
+    switchPlayersTurn = mark => {
+        this.playerOne.style.textDecoration = mark === "X" ? "none" : "underline";
+        this.playerTwo.style.textDecoration = mark === "O" ? "none" : "underline";
         this.playerTwoTurn = !this.playerTwoTurn;
     }
 
