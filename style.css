@@ -35,6 +35,11 @@ main {
 .tile {
     border-radius: 25%;
     border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 500%;
 }
 
 #reset-board {
