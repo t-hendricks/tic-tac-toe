@@ -1,5 +1,5 @@
 /**
- * Player Class handles DOM events and track and update 
+ * Player Class handles DOM events to track and update 
  * individual player stats
  */
 class Player {

@@ -20,7 +20,6 @@ body {
 }
 
 header {
-    align-self: center;
     font-size: x-large;
     text-align: center;
 }
@@ -46,13 +45,25 @@ main {
 .tile {
     background-color: #FF847C;
     border-radius: 20%;
-    /* border: 2px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 500%;
     box-shadow: 0 4px 0 #E84A5F, 0 6px 6px #9d9d9d;
+}
+
+.tile:hover {
+    background-color: #FECEAB;
+    transform: translateY(-6px);
+    cursor: pointer;
+    box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
+}
+
+.x, .o {
+    pointer-events: none;
+    box-shadow: 0 1px 0 #E84A5F, 0 2px 2px #9d9d9d;
+    transform: translateY(4px);
 }
 
 #reset-board {
@@ -68,6 +79,21 @@ main {
     width: 200px;
     margin-top: 20px;
     grid-column: 1 / span 3;
+}
+
+#reset-board:hover {
+    background-color: #FECEAB;
+    transform: translateY(-6px);
+    cursor: pointer;
+    box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
+}
+
+#reset-board:active {
+    background-color: #FECEAB;
+    transform: translateY(-6px);
+    cursor: pointer;
+    box-shadow: 0 1px 0 #E84A5F, 0 2px 2px #9d9d9d;
+    transform: translateY(4px);
 }
 
 footer {

@@ -1,6 +1,7 @@
 /**
- * Game Class handles DOM events, maintain state
- * of game, and implement required methods for rules
+ * Game Class handles DOM events to maintain state
+ * of game and implement required methods for 
+ * game rules
  */
 class Game {
     constructor() {
@@ -20,7 +21,7 @@ class Game {
 
     /**
      * Check win conditions and player turns after 
-     * clicking an empty tile and placing a token
+     * clicking an empty tile and placing a mark
      * @param {"click"} event 
      */
     handleClick = event => {
@@ -40,8 +41,6 @@ class Game {
         } else {
             this.switchPlayersTurn(mark);
         }
-        
-        console.log(emptyTile);
     }
 
 
@@ -53,8 +52,8 @@ class Game {
 
     /**
      * Iterate through the winning conditions 2D array 
-     * for a 3x3 board to possibly find at least one match
-     * for every mark.id played on a matching tile
+     * for a 3x3 board to possibly find at least one condition
+     * have every index match the mark.id played on a tile
      * @param {array} player 
      * @returns {boolean}
      */
@@ -108,7 +107,7 @@ class Game {
     }
 
     
-    // Replace each changed element back to original state
+    // Replace each changed tile back to original state
     resetBoard = event => {
         this.messageEl.innerText = "";
         this.playerTwoTurn = false;
