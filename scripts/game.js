@@ -11,9 +11,11 @@ class Game {
         this.tileEls = document.querySelectorAll(".tile");
         this.messageEl = document.querySelector("#end-game-message");
         this.resetBtnEl = document.querySelector("#reset-board");
+        this.clearBtnEl = document.querySelector("#clear-score");
 
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true})); // Invokes only once for each empty tile
         this.resetBtnEl.addEventListener("click", this.resetBoard);
+        this.clearBtnEl.addEventListener("click", this.clearScores);
         this.playerOne.getNameDOM().style.textDecoration = "underline"; // Invoke player's DOM element w/ class .name, underline the text
     }
 
@@ -121,6 +123,18 @@ class Game {
             tile.innerText = "";
             tile.addEventListener("click", this.handleClick, {once: true});
         })
+    }
+
+    // Reset players scores to 0
+    clearScores = event => {
+        new Audio("./audio/clear-scores.wav").play();
+        this.playerOne.setWins(0);
+        this.playerOne.setLosses(0);
+        this.playerOne.setDraws(0);
+
+        this.playerTwo.setWins(0);
+        this.playerTwo.setLosses(0);
+        this.playerTwo.setDraws(0);
     }
 }
 
