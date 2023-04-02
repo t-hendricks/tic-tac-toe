@@ -52,13 +52,7 @@ main {
     box-shadow: 0 4px 0 #E84A5F, 0 6px 6px #9d9d9d;
 }
 
-.tile:hover {
-    background-color: #FECEAB;
-    transform: translateY(-6px);
-    cursor: pointer;
-    box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
-}
-
+/* Add classes through DOM click event */
 .x, .o {
     pointer-events: none;
     box-shadow: 0 1px 0 #d44256, 0 2px 2px #888888;
@@ -80,21 +74,6 @@ main {
     grid-column: 1 / span 3;
 }
 
-#reset-board:hover {
-    background-color: #FECEAB;
-    transform: translateY(-6px);
-    cursor: pointer;
-    box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
-}
-
-#reset-board:active {
-    background-color: #FECEAB;
-    transform: translateY(-6px);
-    cursor: pointer;
-    box-shadow: 0 1px 0 #E84A5F, 0 2px 2px #9d9d9d;
-    transform: translateY(4px);
-}
-
 footer {
     display: flex;
     align-items: flex-end;
@@ -104,3 +83,68 @@ footer {
 a {
     color: white;
 }
+
+/* Restrict hover for desktop media */
+@media(hover: hover) {
+    .tile:hover {
+        background-color: #FECEAB;
+        transform: translateY(-6px);
+        cursor: pointer;
+        box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
+    }
+
+    #reset-board:hover {
+        background-color: #FECEAB;
+        transform: translateY(-6px);
+        cursor: pointer;
+        box-shadow: 0 8px 0 #E84A5F, 0 8px 8px #9d9d9d;
+    }
+}
+
+#reset-board:active {
+    background-color: #FECEAB;
+    box-shadow: 0 1px 0 #E84A5F, 0 2px 2px #9d9d9d;
+    transform: translateY(4px);
+}
+
+/* Response from small to large mobile devices */
+@media screen and (max-width: 425px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 80px ;
+        /* justify-content: center; */
+        /* justify-items: center; */
+    }
+
+    #board {
+        justify-self: center;
+        grid-column: 1 / span 2;
+    }
+
+    .player {
+        height: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50px 1fr;
+        text-align: center;
+    }
+    
+    #first-player {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 1;
+    }
+
+    #first-player>.name {
+        grid-column: 1 / span 3;
+    }
+
+    #second-player {
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 1;
+    }
+
+    #second-player>.name {
+        grid-column: 1 / span 3;
+    }
+  }
