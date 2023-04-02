@@ -1,3 +1,3 @@
 # Tic-Tac-Toe
-## Overview
-This is my attempt to create a digital imitation of a classic game. 
+This is an attempt to create a digital imitation of a classic game. No need for downloads or creating accounts. Just copy and paste this [link](https://t-hendricks.github.io/tic-tac-toe/) to your favorite browser, or type in the address [t-hendricks.github.io/tic-tac-toe/] (https://t-hendricks.github.io/tic-tac-toe/) into your mobile device browser and play on the go. 
+![Screenshot of my project: tic-tac-toe](./images/screenshot.png)
