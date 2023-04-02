@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
 html {
-    height: 100vh;
-    width: 100vw;
-    background-color: #FFD3B5;
+    font-family: 'Lilita One', cursive;
+    height: 100%;
+    width: 100%;
+    background-color: #2A363B;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 body {
-    height: 500px;
+    height: 100%;
     width: 750px;
     display: grid;
     grid-template-rows: 80px 1fr 80px;
@@ -16,34 +20,52 @@ body {
 }
 
 header {
+    align-self: center;
+    font-size: x-large;
     text-align: center;
 }
 
 main {
+    align-self: center;
     display: flex;
     align-items: space-between;
     justify-content: space-evenly;
 }
 
+.player {
+    font-size: x-large;
+}
+
 #board {
     display: grid;
-    grid-template-columns: 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px;
-    gap: 5px;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 10px;
 }
 
 .tile {
-    border-radius: 25%;
-    border: 2px solid black;
+    background-color: #FF847C;
+    border-radius: 20%;
+    /* border: 2px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 500%;
+    box-shadow: 0 4px 0 #E84A5F, 0 6px 6px #9d9d9d;
 }
 
 #reset-board {
-    height: 30px;
+    font-family: 'Lilita One', cursive;
+    font-size: larger;
+    color: white;
+    background-color: #99B898;
+    border-radius: 20px;
+    border: none;
+    justify-self: center;
+    box-shadow: 0 4px 0 #FECEAB, 0 6px 8px #9d9d9d;
+    height: 40px;
+    width: 200px;
     margin-top: 20px;
     grid-column: 1 / span 3;
 }
@@ -52,4 +74,8 @@ footer {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+}
+
+a {
+    color: white;
 }
