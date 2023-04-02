@@ -35,9 +35,11 @@ class Game {
         if (this.checkWin(mark)) {
             this.updateStats(currPlayer, otherPlayer, false);
             this.endGame(`${mark} Wins!`);
+            new Audio("./audio/winner.wav").play();
         } else if (this.checkDraw(mark)) {
             this.updateStats(currPlayer, otherPlayer, true);
             this.endGame("Draw!");
+            new Audio("./audio/draw.wav").play();
         } else {
             this.switchPlayersTurn(mark);
         }
@@ -47,6 +49,7 @@ class Game {
     placeMark = (mark, tile) => {
         tile.innerText = mark;
         tile.classList.add(mark.toLowerCase());
+        new Audio("./audio/tile-click.wav").play();
     }
 
 
@@ -109,6 +112,7 @@ class Game {
     
     // Replace each changed tile back to original state
     resetBoard = event => {
+        new Audio("./audio/reset.wav").play();
         this.messageEl.innerText = "";
         this.playerTwoTurn = false;
         this.playerOne.getNameDOM().style.textDecoration = "underline";
