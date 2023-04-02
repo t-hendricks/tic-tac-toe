@@ -27,7 +27,6 @@ header {
 main {
     align-self: center;
     display: flex;
-    align-items: space-between;
     justify-content: space-evenly;
 }
 
@@ -62,7 +61,7 @@ main {
 
 .x, .o {
     pointer-events: none;
-    box-shadow: 0 1px 0 #E84A5F, 0 2px 2px #9d9d9d;
+    box-shadow: 0 1px 0 #d44256, 0 2px 2px #888888;
     transform: translateY(4px);
 }
 

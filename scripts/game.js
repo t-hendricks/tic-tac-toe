@@ -1,7 +1,7 @@
 /**
- * Game Class handles DOM events to maintain state
- * of game and implement required methods for 
- * game rules
+ * Game Class handles DOM events to maintain state of game, 
+ * initiate with two players and board tiles, turn set up, 
+ * and methods for game rules and actions
  */
 class Game {
     constructor() {
@@ -12,15 +12,14 @@ class Game {
         this.messageEl = document.querySelector("#end-game-message");
         this.resetBtnEl = document.querySelector("#reset-board");
 
-        // Invoke only once for each empty tile
-        this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true}));
+        this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true})); // Invokes only once for each empty tile
         this.resetBtnEl.addEventListener("click", this.resetBoard);
-        this.playerOne.getNameDOM().style.textDecoration = "underline";
+        this.playerOne.getNameDOM().style.textDecoration = "underline"; // Invoke player's DOM element w/ class .name, underline the text
     }
 
 
     /**
-     * Check win conditions and player turns after 
+     * Check win conditions or player turns after 
      * clicking an empty tile and placing a mark
      * @param {"click"} event 
      */
@@ -56,7 +55,7 @@ class Game {
     /**
      * Iterate through the winning conditions 2D array 
      * for a 3x3 board to possibly find at least one condition
-     * have every index match the mark.id played on a tile
+     * to have every element match each mark.id on a played tile
      * @param {array} player 
      * @returns {boolean}
      */
@@ -67,10 +66,9 @@ class Game {
             [0,4,8],[2,4,6]
         ]
 
-        return conditions.some(condition => {
-            return condition.every(position => {
-                // Changes NodeList to an array
-                const playerMarks = Array.from(document.querySelectorAll(`.${mark.toLowerCase()}`));
+        return conditions.some(condition => {   // Return true if found at least one match
+            return condition.every(position => {    // Return true if every element in condition exist in array
+                const playerMarks = Array.from(document.querySelectorAll(`.${mark.toLowerCase()}`)); // Change NodeList to an array
                 return playerMarks.some(tile => tile.id == position);
             })
         })
