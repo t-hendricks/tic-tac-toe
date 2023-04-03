@@ -4,7 +4,7 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 ## Current Features
 - **Interactive Elements:** Clicking / tapping each tile will alternate the state of the game for each player.
 - **Audio/Visual Feedback:** Each sound and visual cue informs the players when someone has won, lost, tie, or change turns thoughout the game.
-- **Stat Tracker:** For the competitors, multiple games can be played to keep a score count for each game session and reset-board button to start a new game.
+- **Stat Tracker:** For the competitors, multiple games can be played to keep a score count for each game session with a reset-board button to start a new game.
 - **Clean Slate:** No need to refresh the page or open a new tab to reset stats. It is as simple as clicking the clear scores button.
 ## Technologies Used
 - ### Version Control:
@@ -20,7 +20,7 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 ## Installation
 To set up the app locally on your own system:
 1. Fork this [repository](https://github.com/t-hendricks/tic-tac-toe)
-2. In your terminal using either git bash or linux, clone from the code combo button:
+2. In your terminal using either git bash or linux, clone from the green Code combo button:
 ```
 git clone <https://github.com/user/repo>
 ```
