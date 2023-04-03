@@ -8,4 +8,4 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 - **Clean Slate:** No need to refresh the page or open a new tab to reset stats. It is as simple as clicking the clear scores button.
 ## Technologies Used
 - ### Version Control:
-      - Git
+    - Git
