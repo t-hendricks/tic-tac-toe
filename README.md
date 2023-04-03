@@ -20,7 +20,8 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 ## Installation
 To set up the app locally on your own system:
 1. Fork this [repository](https://github.com/t-hendricks/tic-tac-toe)
-2. In your terminal using either git bash or linux, clone the repository:
+2. In your terminal using either git bash or linux, clone from the code combo button:
 ```
-git clone <http://link>
+git clone <https://github.com/user/repo>
 ```
+3. Then open the folder in a text editor or IDE
