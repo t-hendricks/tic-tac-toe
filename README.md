@@ -1,5 +1,6 @@
 # Tic-Tac-Toe
 This is an attempt to create a digital imitation of a classic game. No need for downloads or creating accounts. Just copy and paste this [link](https://t-hendricks.github.io/tic-tac-toe/) to your favorite browser, or type in the address [t-hendricks.github.io/tic-tac-toe/](https://t-hendricks.github.io/tic-tac-toe/) into your mobile device browser and play on the go. 
+Landing Page
 ![Screenshot of my project: tic-tac-toe](./images/screenshot.png)
 ## Current Features
 - **Interactive Elements:** Clicking / tapping each tile will alternate the state of the game for each player.
@@ -8,15 +9,15 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 - **Clean Slate:** No need to refresh the page or open a new tab to reset stats. It is as simple as clicking the clear scores button.
 ## Technologies Used
 - ### Version Control:
-    - Git - local tracking
+    - ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 - ### Developer Tools:
-    - Mac Terminal - CLI
-    - Visual Studio Code - text editor
-    - Google Chrome Developer Tools - testing / debugging
+    - ![Mac Terminal](https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white)
+    - ![VSCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white) - text editor
+    - ![Google Chrome Developer Tools](https://img.shields.io/badge/Google_chrome-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white) - testing / debugging
 - ### Programming Languages:
-   - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-   - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-    - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+   - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) - semantics
+   - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) - grid, flexbox, hover & transform effects
+   - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) - classes, higher-order functions, DOM manipulation
 ## Installation
 To set up the app locally on your own system:
 1. Fork this [repository](https://github.com/t-hendricks/tic-tac-toe)
