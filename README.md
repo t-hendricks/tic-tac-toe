@@ -14,9 +14,9 @@ This is an attempt to create a digital imitation of a classic game. No need for 
     - Visual Studio Code - text editor
     - Google Chrome Developer Tools - testing / debugging
 - ### Programming Languages:
-    - HTML - semantics
-    - CSS - grid, flexbox, hover and transform effects
-    - JavaScript - classes, higher-order array methods, and DOM manipulation
+   - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+   - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+    - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ## Installation
 To set up the app locally on your own system:
 1. Fork this [repository](https://github.com/t-hendricks/tic-tac-toe)
