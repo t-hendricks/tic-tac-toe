@@ -125,6 +125,7 @@ class Game {
         })
     }
 
+    
     // Reset players scores to 0
     clearScores = event => {
         new Audio("./audio/clear-scores.wav").play();

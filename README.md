@@ -16,7 +16,7 @@ This is an attempt to create a digital imitation of a classic game. No need for 
 - ### Programming Languages:
     - HTML - semantics
     - CSS - grid, flexbox, hover and transform effects
-    - JavaScript - classes, higher order functions, and DOM manipulation
+    - JavaScript - classes, higher-order array methods, and DOM manipulation
 ## Installation
 To set up the app locally on your own system:
 1. Fork this [repository](https://github.com/t-hendricks/tic-tac-toe)
