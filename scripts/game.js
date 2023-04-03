@@ -16,7 +16,7 @@ class Game {
         this.tileEls.forEach(tile => tile.addEventListener("click", this.handleClick, {once: true})); // Invokes only once for each empty tile
         this.resetBtnEl.addEventListener("click", this.resetBoard);
         this.clearBtnEl.addEventListener("click", this.clearScores);
-        this.playerOne.getNameDOM().style.textDecoration = "underline"; // Invoke player's DOM element w/ class .name, underline the text
+        this.playerOne.getNameDOM().classList.add("player-turn"); // Invoke player's DOM element w/ a class
     }
 
 
@@ -83,8 +83,14 @@ class Game {
 
 
     switchPlayersTurn = mark => {
-        this.playerOne.getNameDOM().style.textDecoration = mark === "X" ? "none" : "underline";
-        this.playerTwo.getNameDOM().style.textDecoration = mark === "O" ? "none" : "underline";
+        if (mark === "X") {
+            this.playerOne.getNameDOM().classList.remove("player-turn");
+            this.playerTwo.getNameDOM().classList.add("player-turn");
+        } else {
+            this.playerTwo.getNameDOM().classList.remove("player-turn");
+            this.playerOne.getNameDOM().classList.add("player-turn");
+        }
+
         this.playerTwoTurn = !this.playerTwoTurn;
     }
 
@@ -115,8 +121,8 @@ class Game {
         new Audio("./audio/reset.wav").play();
         this.messageEl.innerText = "";
         this.playerTwoTurn = false;
-        this.playerOne.getNameDOM().style.textDecoration = "underline";
-        this.playerTwo.getNameDOM().style.textDecoration = "none";
+        this.playerTwo.getNameDOM().classList.remove("player-turn");
+        this.playerOne.getNameDOM().classList.add("player-turn");
         this.tileEls.forEach(tile => {
             tile.classList.remove("x");
             tile.classList.remove("o");
@@ -125,7 +131,7 @@ class Game {
         })
     }
 
-    
+
     // Reset players scores to 0
     clearScores = event => {
         new Audio("./audio/clear-scores.wav").play();

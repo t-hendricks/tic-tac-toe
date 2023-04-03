@@ -34,6 +34,14 @@ main {
     font-size: x-large;
 }
 
+/* Add class through DOM click event */
+.player-turn {
+    background-color: #FF847C;
+    border-radius: 20%;
+    text-align: center;
+    box-shadow: 0 4px 0 #E84A5F, 0 6px 6px #9d9d9d;
+}
+
 #board {
     display: grid;
     grid-template-columns: repeat(3, 90px);
@@ -135,14 +143,12 @@ a {
     transform: translateY(4px);
 }
 
-/* Response from small to large mobile devices */
+/* Responsesive from small to large mobile devices */
 @media screen and (max-width: 425px) {
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 80px ;
-        /* justify-content: center; */
-        /* justify-items: center; */
     }
 
     #board {
@@ -156,6 +162,10 @@ a {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 50px 1fr;
         text-align: center;
+    }
+
+    .player-turn {
+        text-decoration: underline;
     }
     
     #first-player {
